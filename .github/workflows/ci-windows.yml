@@ -44,7 +44,14 @@ jobs:
         SYMBOLS: 1
         SYMLEVEL: 1
       run: |
-        make -j9 && make -f dist.mak TARGET=neogeo
+        make -j9
+        make -f dist.mak TARGET=neogeo
+        cp -r ./artwork ./build/release/x64/Release/neogeo/artwork
+        cp -r ./bgfx ./build/release/x64/Release/neogeo/bgfx
+        cp -r ./hlsl ./build/release/x64/Release/neogeo/hlsl
+        cp -r ./plugins ./build/release/x64/Release/neogeo/plugins
+        cp -r ./samples ./build/release/x64/Release/neogeo/samples
+
 
     - name: 上传资源
       uses: actions/upload-artifact@v3
@@ -52,11 +59,6 @@ jobs:
         name: neogeo-windows
         path:  |
           ./build/release/x64/Release/neogeo/**/*
-          ./artwork/**/*
-          ./bgfx/**/*
-          ./hlsl/**/*
-          ./plugins/**/*
-          ./samples/**/*
 
   publish:
     runs-on: ubuntu-latest
