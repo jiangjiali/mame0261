@@ -51,7 +51,7 @@ jobs:
         cp -r ./hlsl ./build/release/x64/Release/neogeo/hlsl
         cp -r ./plugins ./build/release/x64/Release/neogeo/plugins
         cp -r ./samples ./build/release/x64/Release/neogeo/samples
-
+        cp -r ./build/mingw-gcc/bin/x64/Release/neogeo.sym ./build/release/x64/Release/neogeo/neogeo.sym
 
     - name: 上传资源
       uses: actions/upload-artifact@v3
