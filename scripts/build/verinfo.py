@@ -114,15 +114,15 @@ if __name__ == '__main__':
     text = template.substitute(
             version=verfull,
             major=vermajor, minor=verminor, build='0', subbuild='0',
-            author='MAMEdev and contributors',
+            author='MAME',
             comments='Multi-purpose emulation framework',
-            company='MAMEdev',
+            company='MAME',
             filedesc='MAME',
             internal=internal,
             original=options.executable,
             product=('MAME' if options.target == 'mame' else options.target),
             rdns=('org.mamedev.' + internal),
-            copyright='\u00a9 1997-2023 MAMEdev and contributors',
+            copyright='\u00a9 1997-2023 MAME',
             winfileflags=('0x0L' if verbuild == '0' else 'VS_FF_PRERELEASE'),
             resources=(options.resources or 'mame.rc'))
 
