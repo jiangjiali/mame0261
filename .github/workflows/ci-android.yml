@@ -54,7 +54,6 @@ jobs:
         ARCHOPTS: -U_FORTIFY_SOURCE
         SUBTARGET: tiny
         SDL_INSTALL_ROOT: ~/sdl2-arm64
-        CROSS_BUILD: 1
         OPTIMIZE: 3
         SYMBOLS: 1
         SYMLEVEL: 1
