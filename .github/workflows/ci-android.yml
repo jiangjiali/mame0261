@@ -51,7 +51,6 @@ jobs:
       env:
         OVERRIDE_CC: clang
         OVERRIDE_CXX: clang++
-        ARCHOPTS: "-fomit-frame-pointer -fuse-ld=lld"
         SUBTARGET: tiny
         SDL_INSTALL_ROOT: "./sdl2-arm64"
         OPTIMIZE: 3
