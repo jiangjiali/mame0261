@@ -1,4 +1,4 @@
-name: 构建Windows
+name: 构建Android
 
 on:
   workflow_dispatch:
@@ -21,7 +21,7 @@ jobs:
     - name: 安装环境
       uses: msys2/setup-msys2@v2
       with:
-        install: git make mingw-w64-x86_64-gcc mingw-w64-x86_64-python mingw-w64-x86_64-lld mingw-w64-x86_64-llvm mingw-w64-x86_64-libc++
+        install: git make mingw-w64-x86_64-clang mingw-w64-x86_64-python mingw-w64-x86_64-lld mingw-w64-x86_64-llvm mingw-w64-x86_64-libc++
 
     - name: 签出源码
       uses: actions/checkout@v3
@@ -30,28 +30,20 @@ jobs:
       env:
         MINGW64: "/mingw64"
         OVERRIDE_AR: "llvm-ar"
-        OVERRIDE_CC: gcc
-        OVERRIDE_CXX: g++
+        OVERRIDE_CC: clang
+        OVERRIDE_CXX: clang++
         ARCHOPTS: "-fomit-frame-pointer -fuse-ld=lld"
-        SUBTARGET: neogeo
-        SOURCES: "src/mame/neogeo"
+        SUBTARGET: tiny
+        SDL_INSTALL_ROOT: "./sdl2-arm64"
         OPTIMIZE: 3
         DEPRECATED: 0
         NOWERROR: 1
-        TOOLS: 1
-        SEPARATE_BIN: 1
-        PTR64: 1
         SYMBOLS: 1
         SYMLEVEL: 1
+        STRIP_SYMBOLS: 1
       run: |
-        make -j9
-        make -f dist.mak TARGET=neogeo
-        cp -r ./artwork ./build/release/x64/Release/neogeo/artwork
-        cp -r ./bgfx ./build/release/x64/Release/neogeo/bgfx
-        cp -r ./hlsl ./build/release/x64/Release/neogeo/hlsl
-        cp -r ./plugins ./build/release/x64/Release/neogeo/plugins
-        cp -r ./samples ./build/release/x64/Release/neogeo/samples
-        cp -r ./build/mingw-gcc/bin/x64/Release/neogeo.sym ./build/release/x64/Release/neogeo/neogeo.sym
+        make -j9 android-arm64
+        ls
 
     - name: 上传资源
       uses: actions/upload-artifact@v3
