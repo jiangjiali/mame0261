@@ -51,11 +51,10 @@ jobs:
       env:
         OVERRIDE_CC: clang
         OVERRIDE_CXX: clang++
+        ARCHOPTS: -U_FORTIFY_SOURCE
         SUBTARGET: tiny
         SDL_INSTALL_ROOT: "./sdl2-arm64"
         OPTIMIZE: 3
-        DEPRECATED: 0
-        NOWERROR: 1
         SYMBOLS: 1
         SYMLEVEL: 1
         STRIP_SYMBOLS: 1
