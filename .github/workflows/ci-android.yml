@@ -24,11 +24,28 @@ jobs:
     - name: 安装环境
       run: |
         sudo apt-get update
+        sudo apt-get install ninja-build pkg-config
         sudo apt-get install -y libsdl2-dev libsdl2-ttf-dev libasound2-dev libxinerama-dev libxi-dev qtbase5-dev qtbase5-dev-tools
         sudo apt-get install -y clang
 
     - name: 签出源码
       uses: actions/checkout@v3
+
+    - name: SDL2
+      run: |
+        cd 3rdparty/sdl2
+        cmake -S . -B build_arm64 \
+            -DANDROID_PLATFORM=android-25 \
+            -DANDROID_ABI=arm64-v8a \
+            -DCMAKE_INSTALL_PREFIX=../../sdl2-arm64 \
+            -DCMAKE_TOOLCHAIN_FILE=${{ steps.setup_ndk.outputs.ndk-path }}/build/cmake/android.toolchain.cmake \
+            -DSDL_SHARED=ON -DSDL_STATIC=ON -DSDL_STATIC_PIC=ON -DSDL_TEST=ON \
+            -DSDL2_DISABLE_SDL2MAIN=OFF -DSDL2_DISABLE_INSTALL=OFF \
+            -DCMAKE_INSTALL_INCLUDEDIR=include -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=Release \
+            -DSDL_VENDOR_INFO="Github Workflow" \
+            -GNinja
+        cmake --build build_arm64 --config Release --parallel --verbose
+        cmake --install build_arm64 --config Release
 
     - name: 编译项目
       env:
