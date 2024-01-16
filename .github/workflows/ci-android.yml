@@ -27,7 +27,6 @@ jobs:
         sudo apt-get upgrade
         sudo apt-get install ninja-build pkg-config
         sudo apt-get install -y libsdl2-dev libsdl2-ttf-dev libasound2-dev libxinerama-dev libxi-dev qtbase5-dev qtbase5-dev-tools
-        sudo apt-get install -y clang llvm
 
     - name: 签出源码
       uses: actions/checkout@v3
@@ -50,8 +49,9 @@ jobs:
 
     - name: 编译项目
       env:
-        OVERRIDE_CC: clang
-        OVERRIDE_CXX: clang++
+        OVERRIDE_CC: gcc
+        OVERRIDE_CXX: g++
+        ARCHOPTS: -U_FORTIFY_SOURCE
         SUBTARGET: tiny
         SDL_INSTALL_ROOT: ~/sdl2-arm64
         OPTIMIZE: 3
