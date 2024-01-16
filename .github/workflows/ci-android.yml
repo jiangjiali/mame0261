@@ -51,6 +51,8 @@ jobs:
       env:
         SUBTARGET: tiny
         SDL_INSTALL_ROOT: ~/sdl2-arm64
+        NOWERROR: 1
+        DEPRECATED: 0
       run: |
         make -j9 android-arm64
         ls
