@@ -27,7 +27,7 @@ jobs:
         sudo apt-get upgrade
         sudo apt-get install ninja-build pkg-config
         sudo apt-get install -y libsdl2-dev libsdl2-ttf-dev libasound2-dev libxinerama-dev libxi-dev qtbase5-dev qtbase5-dev-tools
-        sudo apt-get install -y clang llvm libc++
+        sudo apt-get install -y clang llvm clang-analyzer clang-tools-extra
 
     - name: 签出源码
       uses: actions/checkout@v3
