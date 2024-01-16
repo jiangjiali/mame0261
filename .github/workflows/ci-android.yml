@@ -46,8 +46,6 @@ jobs:
             -GNinja
         cmake --build build_arm64 --config Release --parallel --verbose
         cmake --install build_arm64 --config Release
-        cd ../../
-        ls
 
     - name: 编译项目
       env:
@@ -55,7 +53,7 @@ jobs:
         OVERRIDE_CXX: clang++
         ARCHOPTS: -U_FORTIFY_SOURCE
         SUBTARGET: tiny
-        SDL_INSTALL_ROOT: "sdl2-arm64"
+        SDL_INSTALL_ROOT: ./sdl2-arm64
         OPTIMIZE: 3
         SYMBOLS: 1
         SYMLEVEL: 1
