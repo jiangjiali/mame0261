@@ -35,9 +35,9 @@ jobs:
       run: |
         cd 3rdparty/sdl2
         cmake -S . -B build_arm64 \
-            -DANDROID_PLATFORM=android-25 \
+            -DANDROID_PLATFORM=android-24 \
             -DANDROID_ABI=arm64-v8a \
-            -DCMAKE_INSTALL_PREFIX=../../sdl2-arm64 \
+            -DCMAKE_INSTALL_PREFIX=~/sdl2-arm64 \
             -DCMAKE_TOOLCHAIN_FILE=${{ steps.setup_ndk.outputs.ndk-path }}/build/cmake/android.toolchain.cmake \
             -DSDL_SHARED=ON -DSDL_STATIC=ON -DSDL_STATIC_PIC=ON -DSDL_TEST=ON \
             -DSDL2_DISABLE_SDL2MAIN=OFF -DSDL2_DISABLE_INSTALL=OFF \
@@ -53,7 +53,7 @@ jobs:
         OVERRIDE_CXX: clang++
         ARCHOPTS: -U_FORTIFY_SOURCE
         SUBTARGET: tiny
-        SDL_INSTALL_ROOT: ./sdl2-arm64
+        SDL_INSTALL_ROOT: ~/sdl2-arm64
         CROSS_BUILD: 1
         OPTIMIZE: 3
         SYMBOLS: 1
