@@ -19,7 +19,7 @@ jobs:
       uses: nttld/setup-ndk@v1
       id: setup_ndk
       with:
-        ndk-version: r26b
+        ndk-version: r25c
 
     - name: 安装环境
       run: |
