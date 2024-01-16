@@ -52,8 +52,7 @@ jobs:
       env:
         OVERRIDE_CC: clang
         OVERRIDE_CXX: clang++
-        ARCHOPTS: -U_FORTIFY_SOURCE
-        SUBTARGET: mame
+        SUBTARGET: tiny
         SDL_INSTALL_ROOT: ~/sdl2-arm64
         OPTIMIZE: 3
         SYMBOLS: 1
