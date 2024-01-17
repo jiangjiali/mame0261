@@ -52,6 +52,7 @@ jobs:
         SUBTARGET: tiny
         SDL_INSTALL_ROOT: ~/sdl2-arm64
         OVERRIDE_AR: "llvm-ar"
+        CONFIG: release
         NOWERROR: 1
         DEPRECATED: 0
       run: |
