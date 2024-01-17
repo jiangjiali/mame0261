@@ -20,6 +20,10 @@ jobs:
       id: setup_ndk
       with:
         ndk-version: r21e
+      env:
+        PATH: "$PATH:${{ steps.setup_ndk.outputs.ndk-path }}"
+        ANDROID_NDK: ${{ steps.setup_ndk.outputs.ndk-path }}
+        ANDROID_NDK_HOME: ${{ steps.setup_ndk.outputs.ndk-path }}
 
     - name: 安装环境
       run: |
