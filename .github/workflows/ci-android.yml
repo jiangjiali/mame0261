@@ -57,19 +57,16 @@ jobs:
             -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \
             -DSDL_SHARED=ON -DSDL_STATIC=ON -DSDL_STATIC_PIC=ON -DSDL_TEST=ON \
             -DSDL2_DISABLE_SDL2MAIN=OFF -DSDL2_DISABLE_INSTALL=OFF \
-            -DCMAKE_INSTALL_INCLUDEDIR=include -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=Release \
-            -DSDL_VENDOR_INFO="Github Workflow" \
-            -GNinja
-        cmake --build build_arm --config Release --parallel --verbose
-        cmake --install build_arm --config Release
+            -DCMAKE_INSTALL_INCLUDEDIR=include -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=Release
+        make -C build_arm install
 
     - name: 编译项目
       env:
         SUBTARGET: neogeo
-        SDL_INSTALL_ROOT: ~/sdl2-arm64
+        SDL_INSTALL_ROOT: ~/sdl2-arm
         SOURCES: "src/mame/neogeo"
       run: |
-        make -j9 android-arm64
+        make -j9 android-arm
         ls
 
     - name: 上传资源
