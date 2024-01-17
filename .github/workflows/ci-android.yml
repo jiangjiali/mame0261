@@ -24,7 +24,7 @@ jobs:
     - name: 安装环境
       run: |
         sudo apt-get update
-        sudo apt-get install -y build-essential python3 libsdl2-dev libsdl2-ttf-dev libfontconfig-dev libpulse-dev qtbase5-dev qtbase5-dev-tools qtchooser qt5-qmake libasound2-dev libxinerama-dev libxi-dev
+        sudo apt-get install -y libsdl2-dev libsdl2-ttf-dev libasound2-dev libxinerama-dev libxi-dev qtbase5-dev qtbase5-dev-tools
         sudo apt-get install -y clang pkg-config
         export PATH="$PATH:${{ steps.setup_ndk.outputs.ndk-path }}"
         export ANDROID_NDK=${{ steps.setup_ndk.outputs.ndk-path }}
