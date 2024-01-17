@@ -36,7 +36,8 @@
 #include <os2.h>
 
 
-char *SDL_GetBasePath(void)
+char *
+SDL_GetBasePath(void)
 {
     PTIB    tib;
     PPIB    pib;
@@ -70,7 +71,8 @@ char *SDL_GetBasePath(void)
     return OS2_SysToUTF8(acBuf);
 }
 
-char *SDL_GetPrefPath(const char *org, const char *app)
+char *
+SDL_GetPrefPath(const char *org, const char *app)
 {
     PSZ     pszPath;
     CHAR    acBuf[CCHMAXPATH];

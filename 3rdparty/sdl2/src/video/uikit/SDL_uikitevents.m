@@ -108,7 +108,8 @@ static BOOL UIKit_EventPumpEnabled = YES;
 @end
 
 
-void SDL_iPhoneSetEventPump(SDL_bool enabled)
+void
+SDL_iPhoneSetEventPump(SDL_bool enabled)
 {
     UIKit_EventPumpEnabled = enabled;
 
@@ -120,7 +121,8 @@ void SDL_iPhoneSetEventPump(SDL_bool enabled)
     [lifecycleObserver eventPumpChanged];
 }
 
-void UIKit_PumpEvents(_THIS)
+void
+UIKit_PumpEvents(_THIS)
 {
     if (!UIKit_EventPumpEnabled) {
         return;

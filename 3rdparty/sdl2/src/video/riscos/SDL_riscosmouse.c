@@ -26,7 +26,9 @@
 
 #include <kernel.h>
 
-static SDL_Cursor *RISCOS_CreateDefaultCursor()
+
+static SDL_Cursor *
+RISCOS_CreateDefaultCursor()
 {
     SDL_Cursor *cursor;
 
@@ -41,12 +43,14 @@ static SDL_Cursor *RISCOS_CreateDefaultCursor()
     return cursor;
 }
 
-static void RISCOS_FreeCursor(SDL_Cursor *cursor)
+static void
+RISCOS_FreeCursor(SDL_Cursor * cursor)
 {
     SDL_free(cursor);
 }
 
-static int RISCOS_ShowCursor(SDL_Cursor *cursor)
+static int
+RISCOS_ShowCursor(SDL_Cursor * cursor)
 {
     if (cursor) {
         /* Turn the mouse pointer on */
@@ -59,7 +63,8 @@ static int RISCOS_ShowCursor(SDL_Cursor *cursor)
     return 0;
 }
 
-int RISCOS_InitMouse(_THIS)
+int
+RISCOS_InitMouse(_THIS)
 {
     SDL_Mouse *mouse = SDL_GetMouse();
 

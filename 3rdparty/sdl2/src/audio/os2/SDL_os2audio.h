@@ -43,11 +43,10 @@ typedef struct SDL_PrivateAudioData
     BYTE                _pad[2];
     MCI_MIXSETUP_PARMS  stMCIMixSetup;
     HEV                 hevBuf;
-    PMCI_MIX_BUFFER     pFillBuffer;
-    PMCI_MIX_BUFFER     pDrainBuffer;
-    ULONG               ulState;
+    ULONG               ulNextBuf;
     ULONG               cMixBuffers;
     MCI_MIX_BUFFER      aMixBuffers[NUM_BUFFERS];
+/*  ULONG               ulQueuedBuf;*/
 } SDL_PrivateAudioData;
 
 #endif /* SDL_os2mm_h_ */

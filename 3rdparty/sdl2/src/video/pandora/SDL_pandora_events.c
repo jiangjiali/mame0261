@@ -27,7 +27,8 @@
 
 #include "../../events/SDL_events_c.h"
 
-void PND_PumpEvents(_THIS)
+void
+PND_PumpEvents(_THIS)
 {
     /* Not implemented. */
 }

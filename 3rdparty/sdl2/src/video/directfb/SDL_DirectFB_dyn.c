@@ -45,7 +45,8 @@ DFB_SYMS
 
 static void *handle = NULL;
 
-int SDL_DirectFB_LoadLibrary(void)
+int
+SDL_DirectFB_LoadLibrary(void)
 {
     int retval = 0;
 
@@ -91,7 +92,8 @@ int SDL_DirectFB_LoadLibrary(void)
     return retval;
 }
 
-void SDL_DirectFB_UnLoadLibrary(void)
+void
+SDL_DirectFB_UnLoadLibrary(void)
 {
     if (handle != NULL) {
         SDL_UnloadObject(handle);
@@ -100,16 +102,16 @@ void SDL_DirectFB_UnLoadLibrary(void)
 }
 
 #else
-
-int SDL_DirectFB_LoadLibrary(void)
+int
+SDL_DirectFB_LoadLibrary(void)
 {
     return 1;
 }
 
-void SDL_DirectFB_UnLoadLibrary(void)
+void
+SDL_DirectFB_UnLoadLibrary(void)
 {
 }
-
 #endif
 
 #endif /* SDL_VIDEO_DRIVER_DIRECTFB */

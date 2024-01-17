@@ -23,11 +23,11 @@
 
 #if SDL_HAVE_BLIT_AUTO
 
-/* *INDENT-OFF* */ /* clang-format off */
+/* *INDENT-OFF* */
 
 extern SDL_BlitFuncEntry SDL_GeneratedBlitFuncTable[];
 
-/* *INDENT-ON* */ /* clang-format on */
+/* *INDENT-ON* */
 
 #endif /* SDL_HAVE_BLIT_AUTO */
 

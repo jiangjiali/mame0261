@@ -22,8 +22,7 @@
 
 /* D3D11 shader implementation */
 
-typedef enum
-{
+typedef enum {
     SHADER_SOLID,
     SHADER_RGB,
 #if SDL_HAVE_YUV

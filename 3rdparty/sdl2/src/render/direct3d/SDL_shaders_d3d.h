@@ -22,8 +22,7 @@
 
 /* D3D9 shader implementation */
 
-typedef enum
-{
+typedef enum {
     SHADER_YUV_JPEG,
     SHADER_YUV_BT601,
     SHADER_YUV_BT709,

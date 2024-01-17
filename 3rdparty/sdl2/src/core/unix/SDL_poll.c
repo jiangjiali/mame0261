@@ -32,14 +32,17 @@
 #endif
 #include <errno.h>
 
-int SDL_IOReady(int fd, int flags, int timeoutMS)
+
+int
+SDL_IOReady(int fd, int flags, int timeoutMS)
 {
     int result;
 
     SDL_assert(flags & (SDL_IOR_READ | SDL_IOR_WRITE));
 
     /* Note: We don't bother to account for elapsed time if we get EINTR */
-    do {
+    do
+    {
 #ifdef HAVE_POLL
         struct pollfd info;
 
@@ -80,7 +83,7 @@ int SDL_IOReady(int fd, int flags, int timeoutMS)
         result = select(fd + 1, rfdp, wfdp, NULL, tvp);
 #endif /* HAVE_POLL */
 
-    } while (result < 0 && errno == EINTR && !(flags & SDL_IOR_NO_RETRY));
+    } while ( result < 0 && errno == EINTR && !(flags & SDL_IOR_NO_RETRY));
 
     return result;
 }

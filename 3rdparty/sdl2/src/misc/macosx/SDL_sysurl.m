@@ -23,14 +23,14 @@
 
 #import <Cocoa/Cocoa.h>
 
-int SDL_SYS_OpenURL(const char *url)
+int
+SDL_SYS_OpenURL(const char *url)
+{ @autoreleasepool
 {
-    @autoreleasepool {
-        CFURLRef cfurl = CFURLCreateWithBytes(NULL, (const UInt8 *)url, SDL_strlen(url), kCFStringEncodingUTF8, NULL);
-        OSStatus status = LSOpenCFURLRef(cfurl, NULL);
-        CFRelease(cfurl);
-        return status == noErr ? 0 : -1;
-    }
-}
+    CFURLRef cfurl = CFURLCreateWithBytes(NULL, (const UInt8 *) url, SDL_strlen(url), kCFStringEncodingUTF8,  NULL);
+    OSStatus status = LSOpenCFURLRef(cfurl, NULL);
+    CFRelease(cfurl);
+    return status == noErr ? 0 : -1;
+}}
 
 /* vi: set ts=4 sw=4 expandtab: */

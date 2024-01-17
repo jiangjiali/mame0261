@@ -31,12 +31,13 @@
 #include "SDL_riscosvideo.h"
 #include "SDL_riscoswindow.h"
 
-int RISCOS_CreateWindow(_THIS, SDL_Window *window)
+int
+RISCOS_CreateWindow(_THIS, SDL_Window * window)
 {
     SDL_WindowData *driverdata;
 
-    driverdata = (SDL_WindowData *)SDL_calloc(1, sizeof(*driverdata));
-    if (driverdata == NULL) {
+    driverdata = (SDL_WindowData *) SDL_calloc(1, sizeof(*driverdata));
+    if (!driverdata) {
         return SDL_OutOfMemory();
     }
     driverdata->window = window;
@@ -50,19 +51,20 @@ int RISCOS_CreateWindow(_THIS, SDL_Window *window)
     return 0;
 }
 
-void RISCOS_DestroyWindow(_THIS, SDL_Window *window)
+void
+RISCOS_DestroyWindow(_THIS, SDL_Window * window)
 {
-    SDL_WindowData *driverdata = (SDL_WindowData *)window->driverdata;
+    SDL_WindowData *driverdata = (SDL_WindowData *) window->driverdata;
 
-    if (driverdata == NULL) {
+    if (!driverdata)
         return;
-    }
 
     SDL_free(driverdata);
     window->driverdata = NULL;
 }
 
-SDL_bool RISCOS_GetWindowWMInfo(_THIS, SDL_Window * window, struct SDL_SysWMinfo *info)
+SDL_bool
+RISCOS_GetWindowWMInfo(_THIS, SDL_Window * window, struct SDL_SysWMinfo *info)
 {
     if (info->version.major == SDL_MAJOR_VERSION) {
         info->subsystem = SDL_SYSWM_RISCOS;

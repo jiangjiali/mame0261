@@ -39,6 +39,8 @@ void KMSDRM_PumpEvents(_THIS)
 #elif defined SDL_INPUT_WSCONS
     SDL_WSCONS_PumpEvents();
 #endif
+
 }
 
 #endif /* SDL_VIDEO_DRIVER_KMSDRM */
+

@@ -142,7 +142,6 @@ while (my $d = readdir(HEADERS)) {
     }
     close(HEADER);
 }
-
 closedir(HEADERS);
 
 close(SDL_DYNAPI_PROCS_H);

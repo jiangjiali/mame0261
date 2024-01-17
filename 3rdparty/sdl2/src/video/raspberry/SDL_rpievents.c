@@ -38,6 +38,8 @@ void RPI_PumpEvents(_THIS)
 #ifdef SDL_INPUT_LINUXEV
     SDL_EVDEV_Poll();
 #endif
+    
 }
 
 #endif /* SDL_VIDEO_DRIVER_RPI */
+
