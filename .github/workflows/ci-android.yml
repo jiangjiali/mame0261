@@ -22,15 +22,14 @@ jobs:
         ndk-version: r21e
 
     - name: 安装环境
-      env:
-        PATH: "$PATH:${{ steps.setup_ndk.outputs.ndk-path }}"
-        ANDROID_NDK: ${{ steps.setup_ndk.outputs.ndk-path }}
-        ANDROID_NDK_HOME: ${{ steps.setup_ndk.outputs.ndk-path }}
       run: |
         sudo apt-get update
         sudo apt-get install ninja-build pkg-config
         sudo apt-get install -y libsdl2-dev libsdl2-ttf-dev libasound2-dev libxinerama-dev libxi-dev qtbase5-dev qtbase5-dev-tools
         sudo apt-get install -y clang
+        export PATH="$PATH:${{ steps.setup_ndk.outputs.ndk-path }}"
+        export ANDROID_NDK=${{ steps.setup_ndk.outputs.ndk-path }}
+        export ANDROID_NDK_HOME=${{ steps.setup_ndk.outputs.ndk-path }}
 
     - name: 签出源码
       uses: actions/checkout@v3
