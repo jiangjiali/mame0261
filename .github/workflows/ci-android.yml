@@ -52,8 +52,9 @@ jobs:
 
     - name: 编译项目
       env:
-        SUBTARGET: tiny
+        SUBTARGET: neogeo
         SDL_INSTALL_ROOT: ~/sdl2-arm64
+        SOURCES: "src/mame/neogeo"
       run: |
         make -j9 android-arm64
         ls
